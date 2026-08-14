@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nxeus Goal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <header class="topbar">
+            <div class="brand">
+                <span>Nxeus</span>
+                <small>Goal Tracker</small>
+            </div>
+
+            <div class="save-status">
+                <i></i>
+                Tersimpan
+            </div>
+        </header>
+
+
+        <!-- =========================
+             HALAMAN 1 — PROGRESS
+        ========================== -->
+
+        <section id="page-progress" class="page active">
+
+            <div class="hero-card">
+
+                <div class="progress-area">
+
+                    <div class="progress-circle" id="progressCircle">
+                        <div class="circle-content">
+                            <strong id="percentage">0%</strong>
+                            <span>terkumpul</span>
+                        </div>
+                    </div>
+
+                    <div class="goal-content">
+
+                        <div class="label">
+                            TARGET UTAMA
+                        </div>
+
+                        <h1>Tabungan Laptop</h1>
+
+                        <div class="money">
+                            <strong id="savedAmount">
+                                Rp0
+                            </strong>
+
+                            <span id="targetAmount">
+                                / Rp14.000.000
+                            </span>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div
+                                class="progress-fill"
+                                id="progressFill"
+                            ></div>
+                        </div>
+
+                        <div class="progress-info">
+                            <span id="remainingAmount">
+                                Rp14.000.000 lagi
+                            </span>
+
+                            <span id="percentageText">
+                                0%
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stats">
+
+                    <div class="stat">
+                        <span>Terkumpul</span>
+                        <strong id="savedShort">
+                            Rp0
+                        </strong>
+                    </div>
+
+                    <div class="stat">
+                        <span>Target</span>
+                        <strong id="targetShort">
+                            Rp14jt
+                        </strong>
+                    </div>
+
+                    <div class="stat">
+                        <span>Kekurangan</span>
+                        <strong id="remainingShort">
+                            Rp14jt
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-grid">
+
+                <!-- PEMASUKAN -->
+
+                <div class="panel">
+
+                    <div class="panel-title">
+                        <div class="icon green">
+                            +
+                        </div>
+
+                        <div>
+                            <h2>Tambah pemasukan</h2>
+                            <p>Tambahkan uang ke tabungan</p>
+                        </div>
+                    </div>
+
+                    <input
+                        id="addInput"
+                        type="number"
+                        min="1"
+                        placeholder="Nominal"
+                    >
+
+                    <textarea
+                        id="addDescription"
+                        placeholder="Deskripsi, contoh: uang jajan"
+                    ></textarea>
+
+                    <button
+                        id="addButton"
+                        class="primary"
+                    >
+                        Tambahkan
+                    </button>
+
+                </div>
+
+
+                <!-- PENGELUARAN -->
+
+                <div class="panel">
+
+                    <div class="panel-title">
+                        <div class="icon red">
+                            −
+                        </div>
+
+                        <div>
+                            <h2>Kurangi pengeluaran</h2>
+                            <p>Catat uang yang digunakan</p>
+                        </div>
+                    </div>
+
+                    <input
+                        id="subtractInput"
+                        type="number"
+                        min="1"
+                        placeholder="Nominal"
+                    >
+
+                    <textarea
+                        id="subtractDescription"
+                        placeholder="Deskripsi, contoh: beli keyboard"
+                    ></textarea>
+
+                    <button
+                        id="subtractButton"
+                        class="danger"
+                    >
+                        Kurangi
+                    </button>
+
+                </div>
+
+
+                <!-- TARGET -->
+
+                <div class="panel">
+
+                    <div class="panel-title">
+                        <div class="icon purple">
+                            ◇
+                        </div>
+
+                        <div>
+                            <h2>Atur target</h2>
+                            <p>Ubah target tabungan</p>
+                        </div>
+                    </div>
+
+                    <input
+                        id="targetInput"
+                        type="number"
+                        min="1"
+                        placeholder="Contoh 14000000"
+                    >
+
+                    <button
+                        id="targetButton"
+                        class="primary"
+                    >
+                        Simpan target
+                    </button>
+
+                </div>
+
+
+                <!-- RESET -->
+
+                <div class="panel">
+
+                    <div class="panel-title">
+                        <div class="icon gray">
+                            ↻
+                        </div>
+
+                        <div>
+                            <h2>Reset data</h2>
+                            <p>Hapus progress dan transaksi</p>
+                        </div>
+                    </div>
+
+                    <button
+                        id="resetButton"
+                        class="secondary full"
+                    >
+                        Reset semua data
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             HALAMAN 2 — RIWAYAT
+        ========================== -->
+
+        <section
+            id="page-history"
+            class="page"
+        >
+
+            <div class="section-header">
+
+                <div>
+                    <div class="label">
+                        TRANSAKSI
+                    </div>
+
+                    <h1>Riwayat</h1>
+
+                    <p>
+                        Semua pemasukan dan pengeluaran
+                    </p>
+                </div>
+
+                <button
+                    id="clearHistory"
+                    class="secondary"
+                >
+                    Hapus riwayat
+                </button>
+
+            </div>
+
+
+            <div class="history-card">
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Status</th>
+                                <th>Nominal</th>
+                                <th>Deskripsi</th>
+                                <th>Waktu</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="historyBody"></tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div
+                    id="emptyState"
+                    class="empty-state"
+                >
+                    <div>◎</div>
+                    <strong>Belum ada transaksi</strong>
+                    <span>
+                        Pemasukan dan pengeluaran yang kamu buat
+                        akan muncul di sini.
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             HALAMAN 3 — DAFTAR BARANG
+        ========================== -->
+
+        <section
+            id="page-products"
+            class="page"
+        >
+
+            <div class="section-header">
+
+                <div>
+                    <div class="label">
+                        WISHLIST
+                    </div>
+
+                    <h1>Daftar Barang</h1>
+
+                    <p>
+                        Simpan barang yang ingin kamu beli
+                    </p>
+                </div>
+
+                <button
+                    id="openProductModal"
+                    class="primary"
+                >
+                    + Tambah barang
+                </button>
+
+            </div>
+
+
+            <div
+                id="productList"
+                class="product-grid"
+            ></div>
+
+
+            <div
+                id="productEmpty"
+                class="empty-state"
+            >
+                <div>◇</div>
+
+                <strong>
+                    Belum ada barang
+                </strong>
+
+                <span>
+                    Tambahkan laptop, keyboard, SSD,
+                    atau barang lain yang kamu incar.
+                </span>
+
+                <button
+                    id="emptyAddProduct"
+                    class="primary"
+                >
+                    Tambah barang
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             MODAL TAMBAH BARANG
+        ========================== -->
+
+        <div
+            id="productModal"
+            class="modal"
+        >
+
+            <div class="modal-box">
+
+                <div class="modal-header">
+
+                    <div>
+                        <div class="label">
+                            BARANG BARU
+                        </div>
+
+                        <h2 id="modalTitle">
+                            Tambah barang
+                        </h2>
+                    </div>
+
+                    <button
+                        id="closeProductModal"
+                        class="close-button"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <label>
+                    Nama barang
+                </label>
+
+                <input
+                    id="productName"
+                    type="text"
+                    placeholder="Contoh: Lenovo IdeaPad 5 2-in-1"
+                >
+
+
+                <label>
+                    Harga
+                </label>
+
+                <input
+                    id="productPrice"
+                    type="number"
+                    min="0"
+                    placeholder="Contoh: 14800000"
+                >
+
+
+                <label>
+                    Link produk
+                </label>
+
+                <input
+                    id="productLink"
+                    type="url"
+                    placeholder="https://..."
+                >
+
+
+                <div class="modal-actions">
+
+                    <button
+                        id="cancelProduct"
+                        class="secondary"
+                    >
+                        Batal
+                    </button>
+
+                    <button
+                        id="saveProduct"
+                        class="primary"
+                    >
+                        Simpan barang
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             NAVIGASI
+        ========================== -->
+
+        <nav class="bottom-nav">
+
+            <button
+                class="nav-button active"
+                data-page="progress"
+            >
+                <span>◉</span>
+                Progress
+            </button>
+
+            <button
+                class="nav-button"
+                data-page="history"
+            >
+                <span>≡</span>
+                Riwayat
+            </button>
+
+            <button
+                class="nav-button"
+                data-page="products"
+            >
+                <span>◇</span>
+                Barang
+            </button>
+
+        </nav>
+
+
+        <footer>
+            Nxeus Goal · Data tersimpan otomatis di browser
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+  </html>
